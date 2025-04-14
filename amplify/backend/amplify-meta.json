@@ -1,0 +1,35 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-devops-charles-12bda-authRole",
+      "UnauthRoleArn": "arn:aws:iam::351554784797:role/amplify-devops-charles-12bda-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::351554784797:role/amplify-devops-charles-12bda-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-devops-charles-12bda-deployment",
+      "UnauthRoleName": "amplify-devops-charles-12bda-unauthRole",
+      "StackName": "amplify-devops-charles-12bda",
+      "StackId": "arn:aws:cloudformation:eu-west-1:351554784797:stack/amplify-devops-charles-12bda/176592c0-190c-11f0-87eb-06db5754012f",
+      "AmplifyAppId": "d1hmf9tfdycjbh"
+    }
+  },
+  "storage": {
+    "users": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-devops-charles-12bda-deployment/amplify-cfn-templates/storage/users-cloudformation-template.json",
+        "logicalId": "storageusers"
+      },
+      "lastPushTimeStamp": "2025-04-14T10:00:27.494Z",
+      "output": {
+        "PartitionKeyName": "id",
+        "Region": "eu-west-1",
+        "Arn": "arn:aws:dynamodb:eu-west-1:351554784797:table/users-charles",
+        "StreamArn": "arn:aws:dynamodb:eu-west-1:351554784797:table/users-charles/stream/2025-04-14T10:00:02.893",
+        "PartitionKeyType": "S",
+        "Name": "users-charles"
+      },
+      "lastPushDirHash": "BQrFI3egeCxIUnBYhW4osdZlhSw="
+    }
+  }
+}
