@@ -1,9 +1,9 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "userAccessPool",
+    "identityPoolName": "authAccessPool",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "rendua63ee1142",
+    "resourceNameTruncated": "rendua3c8f3c3a",
     "userPoolName": "userAuthPool",
     "autoVerifiedAttributes": [
       "email"
@@ -23,12 +23,9 @@
       "birthdate",
       "email",
       "family_name",
-      "middle_name",
-      "gender",
       "name",
-      "phone_number",
-      "picture",
-      "updated_at"
+      "nickname",
+      "phone_number"
     ],
     "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
@@ -39,9 +36,9 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "auth63ee1142_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "auth3c8f3c3a_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "63ee1142",
+    "sharedId": "3c8f3c3a",
     "resourceName": "auth",
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "manual",
@@ -49,17 +46,15 @@
     "usernameAttributes": [
       "email"
     ],
-    "userPoolGroups": true,
+    "userPoolGroups": false,
     "adminQueries": false,
     "triggers": {
-      "PostConfirmation": [
+      "PostAuthentication": [
         "custom"
       ]
     },
     "hostedUI": false,
-    "userPoolGroupList": [
-      "user"
-    ],
+    "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
     "useEnabledMfas": true

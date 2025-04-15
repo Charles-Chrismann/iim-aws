@@ -1,22 +1,37 @@
-// src/App.tsx
-import { lazy, Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
+import React from 'react';
+import { Amplify } from 'aws-amplify';
+import awsExports from './aws-exports';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 
-// Use lazy loading to optimize bundle size
-const HomePage = lazy(() => import("./pages/HomePage"));
-const Login = lazy(() => import("./pages/auth/Login"));
-const Register = lazy(() => import("./pages/auth/Register"));
+Amplify.configure(awsExports);
 
-function App() {
-    return (
-        <Suspense fallback={<div>Loading...</div>}>
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-            </Routes>
-        </Suspense>
-    );
+type Props = {
+  signOut?: () => void;
+  user?: any;
+};
+
+function App({ signOut, user }: Props) {
+  return (
+    <div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
+      <h1>Bienvenue, {user?.username} 👋</h1>
+      <p>Tu es connecté via AWS Cognito ✅</p>
+      <button
+        onClick={signOut}
+        style={{
+          marginTop: '1rem',
+          padding: '0.5rem 1rem',
+          background: '#ff4d4f',
+          color: 'white',
+          border: 'none',
+          borderRadius: '5px',
+          cursor: 'pointer',
+        }}
+      >
+        Se déconnecter
+      </button>
+    </div>
+  );
 }
 
-export default App;
+export default withAuthenticator(App);

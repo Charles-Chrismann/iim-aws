@@ -9,12 +9,16 @@ export type AmplifyDependentResourcesAttributes = {
       "UserPoolArn": "string",
       "UserPoolId": "string",
       "UserPoolName": "string"
-    },
-    "userPoolGroups": {
-      "userGroupRole": "string"
     }
   },
   "function": {
+    "authPostAuthentication": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
     "authPostConfirmation": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
