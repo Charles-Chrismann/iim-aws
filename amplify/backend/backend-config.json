@@ -10,7 +10,7 @@
             "Name"
           ],
           "category": "function",
-          "resourceName": "authPostConfirmation",
+          "resourceName": "authPostAuthentication",
           "triggerProvider": "Cognito"
         }
       ],
@@ -27,12 +27,9 @@
           "BIRTHDATE",
           "EMAIL",
           "FAMILY_NAME",
-          "MIDDLE_NAME",
-          "GENDER",
           "NAME",
-          "PHONE_NUMBER",
-          "PICTURE",
-          "UPDATED_AT"
+          "NICKNAME",
+          "PHONE_NUMBER"
         ],
         "socialProviders": [],
         "usernameAttributes": [
@@ -44,25 +41,14 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "Cognito"
-    },
-    "userPoolGroups": {
-      "dependsOn": [
-        {
-          "attributes": [
-            "UserPoolId",
-            "AppClientIDWeb",
-            "AppClientID",
-            "IdentityPoolId"
-          ],
-          "category": "auth",
-          "resourceName": "auth"
-        }
-      ],
-      "providerPlugin": "awscloudformation",
-      "service": "Cognito-UserPool-Groups"
     }
   },
   "function": {
+    "authPostAuthentication": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "authPostConfirmation": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -85,6 +71,22 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_authPostAuthentication_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "authPostAuthentication"
+        }
+      ]
+    },
+    "AMPLIFY_function_authPostAuthentication_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "authPostAuthentication"
+        }
+      ]
+    },
     "AMPLIFY_function_authPostConfirmation_deploymentBucketName": {
       "usedBy": [
         {
