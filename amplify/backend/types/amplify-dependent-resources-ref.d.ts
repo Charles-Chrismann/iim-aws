@@ -1,5 +1,27 @@
 export type AmplifyDependentResourcesAttributes = {
+  "auth": {
+    "auth": {
+      "AppClientID": "string",
+      "AppClientIDWeb": "string",
+      "CreatedSNSRole": "string",
+      "IdentityPoolId": "string",
+      "IdentityPoolName": "string",
+      "UserPoolArn": "string",
+      "UserPoolId": "string",
+      "UserPoolName": "string"
+    },
+    "userPoolGroups": {
+      "userGroupRole": "string"
+    }
+  },
   "function": {
+    "authPostConfirmation": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
     "getUser": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
