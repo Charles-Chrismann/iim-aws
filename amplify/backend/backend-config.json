@@ -53,19 +53,19 @@
     }
   },
   "parameters": {
-    "AMPLIFY_function_renduawsac985610_deploymentBucketName": {
+    "AMPLIFY_function_getUser_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "renduawsac985610"
+          "resourceName": "getUser"
         }
       ]
     },
-    "AMPLIFY_function_renduawsac985610_s3Key": {
+    "AMPLIFY_function_getUser_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "renduawsac985610"
+          "resourceName": "getUser"
         }
       ]
     }
