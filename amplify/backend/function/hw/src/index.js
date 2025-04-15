@@ -16,7 +16,7 @@ exports.handler = async (event) => {
     const client = new DynamoDBClient({ region: "eu-west-1" });
     const ddbDocClient = DynamoDBDocumentClient.from(client);
 
-    // Ajouter une entrée
+    // Ajouter une entrée 
     await ddbDocClient.send(new PutCommand({
       TableName: "users-charles",
       Item: {
