@@ -10,46 +10,6 @@ exports.handler = async (event) => {
 
   const documentClient = new AWS.DynamoDB.DocumentClient();
 
-  // const params = {
-  //   TableName: "users-charles",
-  //   Key: {
-  //     id: "123"
-  //   },
-  //   UpdateExpression: "set age = :n",
-  //   ExpressionAttributeValues: {
-  //     ":n": 3
-  //   },
-  //   ReturnValues: "UPDATED_NEW"
-  // };
-
-  // const data = await documentClient.update(params).promise();
-
-  // const res = await ddbDocClient.send(
-  //   new UpdateCommand({
-  //     TableName: 'users-charles',
-  //     Key: { id: "123" },
-  //     // UpdateExpression: 'SET #name = :name #age = :age',
-  //     UpdateExpression: 'set aaa = "bbb"',
-  //     // ExpressionAttributeNames: {
-  //     //   '#name': 'name',
-  //     //   '#age': 'age',
-  //     // },
-  //     // ExpressionAttributeValues: {
-  //     //   ':name': "Alice2",
-  //     //   // ':age': '10',
-  //     // },
-  //     ReturnValues: 'ALL_NEW'
-  //   })
-  // );
-
-  // Ajouter une entrée
-  // const res = await ddbDocClient.send(new DeleteCommand({
-  //   TableName: "users-charles",
-  //   Key: {
-  //     id: "124"
-  //   }
-  // }));
-
   const { id, ...fieldsToUpdate } = event;
 
   if (!id) {
@@ -73,7 +33,7 @@ exports.handler = async (event) => {
   const updateExpression = `SET ${updateExpressions.join(", ")}`;
 
   const params = {
-    TableName: "users-charles",
+    TableName: "users",
     Key: { id },
     UpdateExpression: updateExpression,
     ExpressionAttributeNames: expressionAttributeNames,

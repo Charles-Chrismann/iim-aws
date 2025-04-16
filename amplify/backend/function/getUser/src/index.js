@@ -14,7 +14,7 @@ exports.handler = async (event) => {
 
   const res = await ddbDocClient.send(
     new GetCommand({
-      TableName: 'users-charles',
+      TableName: 'users',
       Key: {
         id
       }
