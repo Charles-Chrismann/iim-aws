@@ -43,6 +43,10 @@
     },
     "s3Key": {
       "Type": "String"
+    },
+    "functionrenduawsDynamoLayer": {
+      "Type": "String",
+      "Default": "functionrenduawsDynamoLayer"
     }
   },
   "Conditions": {
@@ -113,7 +117,12 @@
           "S3Key": {
             "Ref": "s3Key"
           }
-        }
+        },
+        "Layers": [
+          {
+            "Ref": "functionrenduawsDynamoLayer"
+          }
+        ]
       }
     },
     "LambdaExecutionRole": {

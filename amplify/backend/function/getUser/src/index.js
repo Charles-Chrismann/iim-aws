@@ -1,5 +1,4 @@
-const { DynamoDB } = require("@aws-sdk/client-dynamodb");
-const { DynamoDBDocumentClient, GetCommand } = require('@aws-sdk/lib-dynamodb');
+const { getUser } = require('/opt/dynamoClient');
 
 /**
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
@@ -7,30 +6,30 @@ const { DynamoDBDocumentClient, GetCommand } = require('@aws-sdk/lib-dynamodb');
 exports.handler = async (event) => {
   console.log(`EVENT: ${JSON.stringify(event)}`);
 
-  const id = event.id
+  const id = event.pathParameters?.id;
 
-  const client = new DynamoDB({ region: "eu-west-1" });
-  const ddbDocClient = DynamoDBDocumentClient.from(client);
+  if (!id) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ message: 'Missing id parameter' }),
+    };
+  }
 
-  const res = await ddbDocClient.send(
-    new GetCommand({
-      TableName: 'users-charles',
-      Key: {
-        id
-      }
-    })
-  );
+  try {
+    const user = await getUser(id);
 
-  const user = res.Item
-
-  console.log(user)
-
-  return {
-    statusCode: 200,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "*"
-    },
-    body: JSON.stringify(user),
-  };
+    return {
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "*"
+      },
+      body: JSON.stringify(user || {}),
+    };
+  } catch (err) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ message: 'Failed to get user' }),
+    };
+  }
 };

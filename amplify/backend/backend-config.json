@@ -51,11 +51,29 @@
     },
     "authPostConfirmation": {
       "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "renduawsDynamoLayer"
+        }
+      ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
     "getUser": {
       "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "renduawsDynamoLayer"
+        }
+      ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
@@ -63,6 +81,11 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "renduawsDynamoLayer": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "LambdaLayer"
     },
     "updateUser": {
       "build": true,
@@ -132,6 +155,22 @@
         {
           "category": "function",
           "resourceName": "hw"
+        }
+      ]
+    },
+    "AMPLIFY_function_renduawsDynamoLayer_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "renduawsDynamoLayer"
+        }
+      ]
+    },
+    "AMPLIFY_function_renduawsDynamoLayer_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "renduawsDynamoLayer"
         }
       ]
     },
