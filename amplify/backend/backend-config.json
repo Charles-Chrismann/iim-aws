@@ -1,71 +1,69 @@
 {
-  "api": {
-    "api6825ad94": {
-      "dependsOn": [
-        {
-          "attributes": [
-            "Name",
-            "Arn"
-          ],
-          "category": "function",
-          "resourceName": "renduawsac985610"
-        }
-      ],
-      "providerPlugin": "awscloudformation",
-      "service": "API Gateway"
-    }
-  },
-  "auth": {
-    "renduaws4d096b2a4d096b2a": {
-      "customAuth": false,
-      "dependsOn": [],
-      "frontendAuthConfig": {
-        "mfaConfiguration": "OFF",
-        "mfaTypes": [
-          "SMS"
-        ],
-        "passwordProtectionSettings": {
-          "passwordPolicyCharacters": [],
-          "passwordPolicyMinLength": 8
-        },
-        "signupAttributes": [
-          "EMAIL",
-          "FAMILY_NAME",
-          "NAME"
-        ],
-        "socialProviders": [],
-        "usernameAttributes": [
-          "EMAIL"
-        ],
-        "verificationMechanisms": [
-          "EMAIL"
-        ]
-      },
-      "providerPlugin": "awscloudformation",
-      "service": "Cognito"
-    }
-  },
+  "api": {},
+  "auth": {},
   "function": {
-    "renduawsac985610": {
+    "getUser": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "hw": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "updateUser": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "parameters": {
-    "AMPLIFY_function_renduawsac985610_deploymentBucketName": {
+    "AMPLIFY_function_getUser_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "renduawsac985610"
+          "resourceName": "getUser"
         }
       ]
     },
-    "AMPLIFY_function_renduawsac985610_s3Key": {
+    "AMPLIFY_function_getUser_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "renduawsac985610"
+          "resourceName": "getUser"
+        }
+      ]
+    },
+    "AMPLIFY_function_hw_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "hw"
+        }
+      ]
+    },
+    "AMPLIFY_function_hw_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "hw"
+        }
+      ]
+    },
+    "AMPLIFY_function_updateUser_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "updateUser"
+        }
+      ]
+    },
+    "AMPLIFY_function_updateUser_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "updateUser"
         }
       ]
     }

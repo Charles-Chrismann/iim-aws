@@ -47,12 +47,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "renduawsac985610",
+            "hw",
             {
               "Fn::Join": [
                 "",
                 [
-                  "renduawsac985610",
+                  "hw",
                   "-",
                   {
                     "Ref": "env"
@@ -89,12 +89,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "renduawsLambdaRoleca904ec6",
+            "renduawsLambdaRolec4782f42",
             {
               "Fn::Join": [
                 "",
                 [
-                  "renduawsLambdaRoleca904ec6",
+                  "renduawsLambdaRolec4782f42",
                   "-",
                   {
                     "Ref": "env"
