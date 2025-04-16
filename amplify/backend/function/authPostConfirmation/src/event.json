@@ -1,7 +1,20 @@
 {
+  "version": "1",
+  "triggerSource": "PostConfirmation_ConfirmSignUp",
+  "region": "eu-west-1",
+  "userPoolId": "eu-west-1_XXXXXX",
+  "userName": "abc123",
   "request": {
-    "userPoolId": "testID",
-    "userName": "testUser"
+    "userAttributes": {
+      "sub": "abc123",
+      "email": "john.doe@example.com",
+      "email_verified": "true",
+      "name": "John",
+      "family_name": "Doe",
+      "birthdate": "1990-01-01",
+      "nickname": "johnd",
+      "phone_number": "+1234567890"
+    }
   },
   "response": {}
 }

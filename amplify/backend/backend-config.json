@@ -71,6 +71,38 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_authPostAuthentication_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "authPostAuthentication"
+        }
+      ]
+    },
+    "AMPLIFY_function_authPostAuthentication_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "authPostAuthentication"
+        }
+      ]
+    },
+    "AMPLIFY_function_authPostConfirmation_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "authPostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_authPostConfirmation_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "authPostConfirmation"
+        }
+      ]
+    },
     "AMPLIFY_function_getUser_deploymentBucketName": {
       "usedBy": [
         {
