@@ -40,6 +40,9 @@ export type AmplifyDependentResourcesAttributes = {
       "Name": "string",
       "Region": "string"
     },
+    "renduawsDynamoLayer": {
+      "Arn": "string"
+    },
     "updateUser": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
@@ -49,6 +52,10 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "storage": {
+    "uploads": {
+      "BucketName": "string",
+      "Region": "string"
+    },
     "users": {
       "Arn": "string",
       "Name": "string",
