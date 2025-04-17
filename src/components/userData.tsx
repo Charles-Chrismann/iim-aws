@@ -1,23 +1,12 @@
 import { useEffect, useState } from "react";
 import { post } from "@aws-amplify/api";
 
-interface User {
-    id: string;
-    name: string;
-    lastname: string;
-    nickname: string;
-    email: string;
-    phone: string;
-    birthdate: string;
-    createdAt: string;
-}
-
 interface UserDataProps {
     userId: string;
 }
 
 export function UserData({ userId }: UserDataProps) {
-    const [user, setUser] = useState<User | null>(null);
+    const [user, setUser] = useState<any | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
