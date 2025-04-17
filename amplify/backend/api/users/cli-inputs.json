@@ -58,7 +58,7 @@
       "name": "/updateUser",
       "lambdaFunction": "updateUser",
       "permissions": {
-        "setting": "protected",
+        "setting": "private",
         "auth": [
           "create",
           "read",
