@@ -127,7 +127,7 @@ export const UserAddresses = ({ userId, refreshSignal }: UserAddressesProps) => 
   if (addresses.length === 0) return <p className="text-gray-500">Aucune adresse trouvée.</p>;
 
   return (
-    <div className="max-w-xl mx-auto mt-10 bg-white p-6 rounded-2xl shadow-md">
+    <div className="max-w-3xl mx-auto mt-10 bg-white p-6 rounded-2xl shadow-md">
       <h2 className="text-2xl font-bold mb-4">Adresses enregistrées 📬</h2>
 
       <ul className="space-y-4">
