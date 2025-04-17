@@ -2,7 +2,7 @@
   "version": "1",
   "cognitoConfig": {
     "identityPoolName": "authAccessPool",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "rendua3c8f3c3a",
     "userPoolName": "userAuthPool",
     "autoVerifiedAttributes": [
@@ -42,6 +42,7 @@
     "resourceName": "auth",
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "manual",
+    "thirdPartyAuth": false,
     "usernameAttributes": [
       "email"
     ],
@@ -82,11 +83,10 @@
       }
     ],
     "permissions": [],
+    "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PostConfirmation\",\n    \"lambdaFunctionName\": \"authPostConfirmation\"\n  }\n]",
+    "authProviders": [],
     "parentStack": {
       "Ref": "AWS::StackId"
-    },
-    "authProviders": [],
-    "thirdPartyAuth": true,
-    "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PostConfirmation\",\n    \"lambdaFunctionName\": \"authPostConfirmation\"\n  }\n]"
+    }
   }
 }

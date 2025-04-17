@@ -30,7 +30,6 @@ const getUser = async (id) => {
     }));
     return result.Item;
   } catch (err) {
-    
     console.error("Error in getUser:", err);
     throw err;
   }

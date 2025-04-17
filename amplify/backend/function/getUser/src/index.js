@@ -4,13 +4,8 @@ const { DynamoDBDocumentClient, GetCommand } = require('@aws-sdk/lib-dynamodb');
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
  */
 exports.handler = async (event) => {
-  console.log(`EVENT: ${JSON.stringify(event)}`);
-
   const body = JSON.parse(event.body)
-
   const id = body.id
-
-  console.log(id)
 
   try {
     const client = new DynamoDB({ region: "eu-west-1" });

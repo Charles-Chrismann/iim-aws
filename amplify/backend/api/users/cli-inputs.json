@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "paths": {
+    "/getUser": {
+      "name": "/getUser",
+      "lambdaFunction": "getUser",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    },
+    "/user/addresses": {
+      "name": "/user/addresses",
+      "lambdaFunction": "createAddress",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create"
+        ]
+      }
+    },
+    "/users/{userId}/addresses": {
+      "name": "/users/{userId}/addresses",
+      "lambdaFunction": "getUserAddresses",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "read"
+        ]
+      }
+    },
+    "/users/{userId}/addresses/delete/{addressId}": {
+      "name": "/users/{userId}/addresses/delete/{addressId}",
+      "lambdaFunction": "deleteUserAddress",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "delete"
+        ]
+      }
+    },
+    "/users/{userId}/addresses/update/{addressId}": {
+      "name": "/users/{userId}/addresses/update/{addressId}",
+      "lambdaFunction": "updateUserAddress",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "update"
+        ]
+      }
+    }
+  }
+}

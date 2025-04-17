@@ -1,5 +1,52 @@
 {
-  "api": {},
+  "api": {
+    "users": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "getUser"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "createAddress"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "getUserAddresses"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "deleteUserAddress"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "updateUserAddress"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
   "auth": {
     "auth": {
       "customAuth": false,
@@ -58,17 +105,23 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "createAddress": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "deleteUserAddress": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "getUser": {
       "build": true,
-      "dependsOn": [
-        {
-          "attributes": [
-            "Arn"
-          ],
-          "category": "function",
-          "resourceName": "renduawsDynamoLayer"
-        }
-      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "getUserAddresses": {
+      "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
@@ -83,6 +136,11 @@
       "service": "LambdaLayer"
     },
     "updateUser": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "updateUserAddress": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
@@ -102,6 +160,54 @@
         {
           "category": "function",
           "resourceName": "authPostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_createAddress_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "createAddress"
+        }
+      ]
+    },
+    "AMPLIFY_function_createAddress_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "createAddress"
+        }
+      ]
+    },
+    "AMPLIFY_function_deleteUserAddress_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "deleteUserAddress"
+        }
+      ]
+    },
+    "AMPLIFY_function_deleteUserAddress_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "deleteUserAddress"
+        }
+      ]
+    },
+    "AMPLIFY_function_getUserAddresses_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getUserAddresses"
+        }
+      ]
+    },
+    "AMPLIFY_function_getUserAddresses_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getUserAddresses"
         }
       ]
     },
@@ -153,6 +259,22 @@
         }
       ]
     },
+    "AMPLIFY_function_updateUserAddress_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "updateUserAddress"
+        }
+      ]
+    },
+    "AMPLIFY_function_updateUserAddress_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "updateUserAddress"
+        }
+      ]
+    },
     "AMPLIFY_function_updateUser_deploymentBucketName": {
       "usedBy": [
         {
@@ -171,6 +293,11 @@
     }
   },
   "storage": {
+    "uploads": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
+    },
     "users": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"

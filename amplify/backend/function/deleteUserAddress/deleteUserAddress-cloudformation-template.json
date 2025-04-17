@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "{\"createdOn\":\"Linux\",\"createdBy\":\"Amplify\",\"createdWith\":\"13.0.0\",\"stackType\":\"function-Lambda\",\"metadata\":{\"whyContinueWithGen1\":\"\"}}",
+  "Description": "{\"createdOn\":\"Windows\",\"createdBy\":\"Amplify\",\"createdWith\":\"13.0.0\",\"stackType\":\"function-Lambda\",\"metadata\":{\"whyContinueWithGen1\":\"\"}}",
   "Parameters": {
     "CloudWatchRule": {
       "Type": "String",
@@ -47,12 +47,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "hw",
+            "deleteUserAddress",
             {
               "Fn::Join": [
                 "",
                 [
-                  "hw",
+                  "deleteUserAddress",
                   "-",
                   {
                     "Ref": "env"
@@ -89,12 +89,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "renduawsLambdaRolec4782f42",
+            "renduawsLambdaRole58dbdc2b",
             {
               "Fn::Join": [
                 "",
                 [
-                  "renduawsLambdaRolec4782f42",
+                  "renduawsLambdaRole58dbdc2b",
                   "-",
                   {
                     "Ref": "env"

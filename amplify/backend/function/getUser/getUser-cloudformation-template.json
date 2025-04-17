@@ -15,14 +15,6 @@
     },
     "s3Key": {
       "Type": "String"
-    },
-    "functionrenduawsDynamoLayer": {
-      "Type": "String",
-      "Default": "functionrenduawsDynamoLayer"
-    },
-    "functionrenduawsDynamoLayerArn": {
-      "Type": "String",
-      "Default": "functionrenduawsDynamoLayerArn"
     }
   },
   "Conditions": {
@@ -87,11 +79,7 @@
           ]
         },
         "Runtime": "nodejs22.x",
-        "Layers": [
-          {
-            "Ref": "functionrenduawsDynamoLayerArn"
-          }
-        ],
+        "Layers": [],
         "Timeout": 25
       }
     },

@@ -38,15 +38,15 @@
     "env": {
       "Type": "String"
     },
-    "functionrenduawsDynamoLayerArn": {
-      "Type": "String",
-      "Default": "functionrenduawsDynamoLayerArn"
-    },
     "deploymentBucketName": {
       "Type": "String"
     },
     "s3Key": {
       "Type": "String"
+    },
+    "functionrenduawsDynamoLayerArn": {
+      "Type": "String",
+      "Default": "functionrenduawsDynamoLayerArn"
     }
   },
   "Conditions": {
@@ -110,11 +110,6 @@
         },
         "Runtime": "nodejs22.x",
         "Timeout": 25,
-        "Layers": [
-          {
-            "Ref": "functionrenduawsDynamoLayerArn"
-          }
-        ],
         "Code": {
           "S3Bucket": {
             "Ref": "deploymentBucketName"
@@ -122,7 +117,12 @@
           "S3Key": {
             "Ref": "s3Key"
           }
-        }
+        },
+        "Layers": [
+          {
+            "Ref": "functionrenduawsDynamoLayerArn"
+          }
+        ]
       }
     },
     "LambdaExecutionRole": {
