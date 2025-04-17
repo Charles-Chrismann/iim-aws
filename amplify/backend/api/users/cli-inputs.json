@@ -53,6 +53,22 @@
           "update"
         ]
       }
+    },
+    "/updateUser": {
+      "name": "/updateUser",
+      "lambdaFunction": "updateUser",
+      "permissions": {
+        "setting": "protected",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ],
+        "guest": [
+          "read"
+        ]
+      }
     }
   }
 }

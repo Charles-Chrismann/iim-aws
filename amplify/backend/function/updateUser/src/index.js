@@ -1,6 +1,7 @@
 const { DynamoDB, DynamoDBClient, ListTablesCommand } = require("@aws-sdk/client-dynamodb");
 const { DynamoDBDocumentClient, UpdateCommand, GetCommand, PutCommand, DeleteCommand } = require('@aws-sdk/lib-dynamodb');
-const AWS = require('aws-sdk');
+const AWS = require('aws-sdk');const { DynamoDB, DynamoDBClient, ListTablesCommand } = require("@aws-sdk/client-dynamodb");
+const { DynamoDBDocumentClient, UpdateCommand, GetCommand, PutCommand, DeleteCommand } = require('@aws-sdk/lib-dynamodb');
 
 /**
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
@@ -8,7 +9,7 @@ const AWS = require('aws-sdk');
 exports.handler = async (event) => {
   console.log(`EVENT: ${JSON.stringify(event)}`);
 
-  const documentClient = new AWS.DynamoDB.DocumentClient();
+  const client = DynamoDBDocumentClient.from(new DynamoDBClient());
 
   const { id, ...fieldsToUpdate } = JSON.parse(event.body);
 
@@ -43,7 +44,9 @@ exports.handler = async (event) => {
 
   let data;
   try {
-    data = await documentClient.update(params).promise();
+    const data = await client.send(
+      new UpdateCommand(params)
+    )
   } catch (error) {
     console.error("Update error:", error);
     return {

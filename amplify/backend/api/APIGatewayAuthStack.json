@@ -43,25 +43,17 @@
                     "",
                     [
                       "arn:aws:execute-api:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
+                      { "Ref": "AWS::Region" },
                       ":",
-                      {
-                        "Ref": "AWS::AccountId"
-                      },
+                      { "Ref": "AWS::AccountId" },
                       ":",
-                      {
-                        "Ref": "users"
-                      },
+                      { "Ref": "users" },
                       "/",
                       {
                         "Fn::If": [
                           "ShouldNotCreateEnvResources",
                           "Prod",
-                          {
-                            "Ref": "env"
-                          }
+                          { "Ref": "env" }
                         ]
                       },
                       "/*/getUser/*"
@@ -73,25 +65,17 @@
                     "",
                     [
                       "arn:aws:execute-api:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
+                      { "Ref": "AWS::Region" },
                       ":",
-                      {
-                        "Ref": "AWS::AccountId"
-                      },
+                      { "Ref": "AWS::AccountId" },
                       ":",
-                      {
-                        "Ref": "users"
-                      },
+                      { "Ref": "users" },
                       "/",
                       {
                         "Fn::If": [
                           "ShouldNotCreateEnvResources",
                           "Prod",
-                          {
-                            "Ref": "env"
-                          }
+                          { "Ref": "env" }
                         ]
                       },
                       "/*/getUser"
@@ -103,25 +87,17 @@
                     "",
                     [
                       "arn:aws:execute-api:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
+                      { "Ref": "AWS::Region" },
                       ":",
-                      {
-                        "Ref": "AWS::AccountId"
-                      },
+                      { "Ref": "AWS::AccountId" },
                       ":",
-                      {
-                        "Ref": "users"
-                      },
+                      { "Ref": "users" },
                       "/",
                       {
                         "Fn::If": [
                           "ShouldNotCreateEnvResources",
                           "Prod",
-                          {
-                            "Ref": "env"
-                          }
+                          { "Ref": "env" }
                         ]
                       },
                       "/POST/user/addresses/*"
@@ -133,25 +109,17 @@
                     "",
                     [
                       "arn:aws:execute-api:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
+                      { "Ref": "AWS::Region" },
                       ":",
-                      {
-                        "Ref": "AWS::AccountId"
-                      },
+                      { "Ref": "AWS::AccountId" },
                       ":",
-                      {
-                        "Ref": "users"
-                      },
+                      { "Ref": "users" },
                       "/",
                       {
                         "Fn::If": [
                           "ShouldNotCreateEnvResources",
                           "Prod",
-                          {
-                            "Ref": "env"
-                          }
+                          { "Ref": "env" }
                         ]
                       },
                       "/POST/user/addresses"
@@ -163,25 +131,17 @@
                     "",
                     [
                       "arn:aws:execute-api:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
+                      { "Ref": "AWS::Region" },
                       ":",
-                      {
-                        "Ref": "AWS::AccountId"
-                      },
+                      { "Ref": "AWS::AccountId" },
                       ":",
-                      {
-                        "Ref": "users"
-                      },
+                      { "Ref": "users" },
                       "/",
                       {
                         "Fn::If": [
                           "ShouldNotCreateEnvResources",
                           "Prod",
-                          {
-                            "Ref": "env"
-                          }
+                          { "Ref": "env" }
                         ]
                       },
                       "/GET/users/*/addresses/*"
@@ -193,25 +153,17 @@
                     "",
                     [
                       "arn:aws:execute-api:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
+                      { "Ref": "AWS::Region" },
                       ":",
-                      {
-                        "Ref": "AWS::AccountId"
-                      },
+                      { "Ref": "AWS::AccountId" },
                       ":",
-                      {
-                        "Ref": "users"
-                      },
+                      { "Ref": "users" },
                       "/",
                       {
                         "Fn::If": [
                           "ShouldNotCreateEnvResources",
                           "Prod",
-                          {
-                            "Ref": "env"
-                          }
+                          { "Ref": "env" }
                         ]
                       },
                       "/GET/users/*/addresses"
@@ -223,25 +175,17 @@
                     "",
                     [
                       "arn:aws:execute-api:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
+                      { "Ref": "AWS::Region" },
                       ":",
-                      {
-                        "Ref": "AWS::AccountId"
-                      },
+                      { "Ref": "AWS::AccountId" },
                       ":",
-                      {
-                        "Ref": "users"
-                      },
+                      { "Ref": "users" },
                       "/",
                       {
                         "Fn::If": [
                           "ShouldNotCreateEnvResources",
                           "Prod",
-                          {
-                            "Ref": "env"
-                          }
+                          { "Ref": "env" }
                         ]
                       },
                       "/DELETE/users/*/addresses/delete/*/*"
@@ -253,25 +197,17 @@
                     "",
                     [
                       "arn:aws:execute-api:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
+                      { "Ref": "AWS::Region" },
                       ":",
-                      {
-                        "Ref": "AWS::AccountId"
-                      },
+                      { "Ref": "AWS::AccountId" },
                       ":",
-                      {
-                        "Ref": "users"
-                      },
+                      { "Ref": "users" },
                       "/",
                       {
                         "Fn::If": [
                           "ShouldNotCreateEnvResources",
                           "Prod",
-                          {
-                            "Ref": "env"
-                          }
+                          { "Ref": "env" }
                         ]
                       },
                       "/DELETE/users/*/addresses/delete/*"
@@ -283,25 +219,17 @@
                     "",
                     [
                       "arn:aws:execute-api:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
+                      { "Ref": "AWS::Region" },
                       ":",
-                      {
-                        "Ref": "AWS::AccountId"
-                      },
+                      { "Ref": "AWS::AccountId" },
                       ":",
-                      {
-                        "Ref": "users"
-                      },
+                      { "Ref": "users" },
                       "/",
                       {
                         "Fn::If": [
                           "ShouldNotCreateEnvResources",
                           "Prod",
-                          {
-                            "Ref": "env"
-                          }
+                          { "Ref": "env" }
                         ]
                       },
                       "/PUT/users/*/addresses/update/*/*"
@@ -313,25 +241,17 @@
                     "",
                     [
                       "arn:aws:execute-api:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
+                      { "Ref": "AWS::Region" },
                       ":",
-                      {
-                        "Ref": "AWS::AccountId"
-                      },
+                      { "Ref": "AWS::AccountId" },
                       ":",
-                      {
-                        "Ref": "users"
-                      },
+                      { "Ref": "users" },
                       "/",
                       {
                         "Fn::If": [
                           "ShouldNotCreateEnvResources",
                           "Prod",
-                          {
-                            "Ref": "env"
-                          }
+                          { "Ref": "env" }
                         ]
                       },
                       "/PUT/users/*/addresses/update/*"
@@ -343,25 +263,17 @@
                     "",
                     [
                       "arn:aws:execute-api:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
+                      { "Ref": "AWS::Region" },
                       ":",
-                      {
-                        "Ref": "AWS::AccountId"
-                      },
+                      { "Ref": "AWS::AccountId" },
                       ":",
-                      {
-                        "Ref": "users"
-                      },
+                      { "Ref": "users" },
                       "/",
                       {
                         "Fn::If": [
                           "ShouldNotCreateEnvResources",
                           "Prod",
-                          {
-                            "Ref": "env"
-                          }
+                          { "Ref": "env" }
                         ]
                       },
                       "/PATCH/users/*/addresses/update/*/*"
@@ -373,25 +285,17 @@
                     "",
                     [
                       "arn:aws:execute-api:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
+                      { "Ref": "AWS::Region" },
                       ":",
-                      {
-                        "Ref": "AWS::AccountId"
-                      },
+                      { "Ref": "AWS::AccountId" },
                       ":",
-                      {
-                        "Ref": "users"
-                      },
+                      { "Ref": "users" },
                       "/",
                       {
                         "Fn::If": [
                           "ShouldNotCreateEnvResources",
                           "Prod",
-                          {
-                            "Ref": "env"
-                          }
+                          { "Ref": "env" }
                         ]
                       },
                       "/PATCH/users/*/addresses/update/*"

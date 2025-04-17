@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Amplify } from 'aws-amplify';
 import amplifyconfig from './aws-exports';
 import { withAuthenticator } from '@aws-amplify/ui-react';
@@ -6,6 +6,7 @@ import '@aws-amplify/ui-react/styles.css';
 import { ProfilePictureForm } from './components/ProfilePictureForm';
 import { AddressForm } from './components/AddressForm';
 import { UserAddresses } from './components/UserAddresses';
+import { UserData } from './components/userData';
 
 Amplify.configure(amplifyconfig);
 
@@ -13,7 +14,7 @@ type Props = {
   signOut?: () => void;
   user?: {
     signInDetails: {
-      authFlowType: string,
+      authFlowType: string;
       loginId: string;
     };
     userId: string;
@@ -56,6 +57,7 @@ function App({ signOut, user }: Props) {
             userId={user.userId}
             refreshSignal={refreshAddresses}
           />
+          <UserData userId={user.userId} />
         </>
       )}
     </div>
