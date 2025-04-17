@@ -49,6 +49,7 @@ function App({ signOut, user }: Props) {
       {user && (
         <>
           <ProfilePictureForm userId={user.userId} />
+          <UserData userId={user.userId} />
           <AddressForm
             userId={user.userId}
             onSuccess={() => setRefreshAddresses((prev) => !prev)}
@@ -57,7 +58,6 @@ function App({ signOut, user }: Props) {
             userId={user.userId}
             refreshSignal={refreshAddresses}
           />
-          <UserData userId={user.userId} />
         </>
       )}
     </div>
