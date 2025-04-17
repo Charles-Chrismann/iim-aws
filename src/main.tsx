@@ -8,13 +8,16 @@ import "./styles/index.css";
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
         <BrowserRouter>
+        <div className="flex justify-between">
             <ul>
-                <li>
+                <li className="flex gap-4">
                     <Link to="/">Home</Link>
                     <Link to="/login">Login</Link>
                     <Link to="/register">Register</Link>
                 </li>
             </ul>
+
+        </div>
             <App />
         </BrowserRouter>
     </React.StrictMode>

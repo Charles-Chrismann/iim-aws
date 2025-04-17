@@ -67,7 +67,7 @@ export const AddressForm = ({ userId, onSuccess }: AddressFormProps) => {
   };
 
   return (
-    <div className="max-w-xl mx-auto bg-white p-6 rounded-2xl shadow-md mt-10">
+    <div className="max-w-3xl mx-auto bg-white p-6 rounded-2xl shadow-md mt-10">
       <h2 className="text-2xl font-bold mb-4">Ajouter des adresses 🏡</h2>
 
       <form onSubmit={handleSubmit} className="space-y-6">

@@ -1,40 +1,17 @@
 import { post } from '@aws-amplify/api';
 import { uploadData } from 'aws-amplify/storage';
-import { DetailedHTMLProps, FormEventHandler, InputHTMLAttributes, useEffect } from 'react';
+import amplifyconfig from '../aws-exports';
+import { useState } from 'react';
 
-export function ProfilePictureForm({ userId }: { userId: string }) {
-
-  useEffect(() => {
-    async function main() {
-      
-      const res = await post({
-        path: "/getUser",
-        apiName: 'users',
-        options: {
-          body: {
-            id: "82558424-80c1-707b-7080-74987f47c82a"
-          },
-          // queryParams: {
-          //   id: "123"
-          // },
-        }
-      }).response
-
-      console.log(res)
-    }
-
-    main()
-  }, [])
+export function ProfilePictureForm({ user, setUser }: { user: Record<string, any>, setUser: Function }) {
+  const [cacheInvalidator, setCacheInvalidator] = useState(crypto.randomUUID())
 
   async function onInput(e: any) {
-    console.log(e)
     const file = e.target.files[0]
-    console.log(file)
+
     try {
       const result = await uploadData({
-        path: `users/${userId}/avatar.${file.type.split('/')[1]}`, 
-        // path: 'public/album/2024/1.jpg', 
-        // Alternativ ely, path: ({identityId}) => `protected/${identityId}/album/2024/1.jpg`
+        path: `users/${user.id}/avatar.${file.type.split('/')[1]}`,
         data: file,
         options: {
           onProgress: (progress) => {
@@ -42,21 +19,22 @@ export function ProfilePictureForm({ userId }: { userId: string }) {
           }
         }
       }).result;
-      console.log('Succeeded: ', result);
-      console.log('Succeeded: ', result.path);
 
       const res = await post({
         path: "/updateUser",
         apiName: 'users',
         options: {
           body: {
-            id: "123",
+            id: user.id,
             avatarS3Path: result.path
           }
         }
       }).response
 
-      console.log(res)
+      if (res.statusCode === 200) {
+        setUser({ ...user, avatarS3Path: result.path })
+        setCacheInvalidator(crypto.randomUUID())
+      }
     } catch (error) {
       console.log('Error : ', error);
     }
@@ -64,8 +42,52 @@ export function ProfilePictureForm({ userId }: { userId: string }) {
 
 
   return (
-    <div>
-      <input type="file" name="tes" id="test" onChange={onInput} />
-    </div>
+    <div
+      style={{
+        maxWidth: "768px",
+        margin: "1rem auto",
+        padding: "1.5rem",
+        borderRadius: "8px",
+        boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+        fontFamily: "sans-serif",
+        background: "#fff",
+        display: 'flex',
+        flexDirection: 'column'
+      }}
+    >
+      {
+        user.avatarS3Path &&
+        <>
+          <img
+            style={{
+              width: '100%',
+              aspectRatio: 1,
+              objectFit: 'cover'
+            }}
+            src={`https://${(amplifyconfig as any)["aws_user_files_s3_bucket"]}.s3.${(amplifyconfig as any)["aws_user_files_s3_bucket_region"]}.amazonaws.com/${user.avatarS3Path}?a=${cacheInvalidator}`}
+            alt='user avatar'
+          />
+          <div className='p-4 text-center'>
+            <label htmlFor="avatar">Changer d'avatar</label>
+          </div>
+        </>
+      }
+
+      {
+        !user.avatarS3Path &&
+        <div 
+          style={{
+            width: "100%",
+            aspectRatio: 1,
+            display: "grid",
+            placeItems: "center"
+          }}
+        >
+          <label htmlFor="avatar">Ajouter un avatar</label>
+        </div>
+      }
+
+      <input type="file" name="avatar" id="avatar" onChange={onInput} hidden />
+    </div >
   )
 }
