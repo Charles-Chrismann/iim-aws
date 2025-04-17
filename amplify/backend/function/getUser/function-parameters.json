@@ -1,11 +1,3 @@
 {
-  "lambdaLayers": [
-    {
-      "type": "ProjectLayer",
-      "resourceName": "renduawsDynamoLayer",
-      "env": "develop",
-      "version": "Always choose latest version",
-      "isLatestVersionSelected": true
-    }
-  ]
+  "lambdaLayers": []
 }
