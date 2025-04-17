@@ -10,7 +10,7 @@
             "Name"
           ],
           "category": "function",
-          "resourceName": "authPostAuthentication",
+          "resourceName": "authPostConfirmation",
           "triggerProvider": "Cognito"
         }
       ],
@@ -44,18 +44,31 @@
     }
   },
   "function": {
-    "authPostAuthentication": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
     "authPostConfirmation": {
       "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "renduawsDynamoLayer"
+        }
+      ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
     "getUser": {
       "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "renduawsDynamoLayer"
+        }
+      ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
@@ -64,6 +77,11 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "renduawsDynamoLayer": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "LambdaLayer"
+    },
     "updateUser": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -71,22 +89,6 @@
     }
   },
   "parameters": {
-    "AMPLIFY_function_authPostAuthentication_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "authPostAuthentication"
-        }
-      ]
-    },
-    "AMPLIFY_function_authPostAuthentication_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "authPostAuthentication"
-        }
-      ]
-    },
     "AMPLIFY_function_authPostConfirmation_deploymentBucketName": {
       "usedBy": [
         {
@@ -132,6 +134,22 @@
         {
           "category": "function",
           "resourceName": "hw"
+        }
+      ]
+    },
+    "AMPLIFY_function_renduawsDynamoLayer_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "renduawsDynamoLayer"
+        }
+      ]
+    },
+    "AMPLIFY_function_renduawsDynamoLayer_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "renduawsDynamoLayer"
         }
       ]
     },

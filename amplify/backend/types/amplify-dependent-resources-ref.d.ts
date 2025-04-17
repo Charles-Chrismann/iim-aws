@@ -12,13 +12,6 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "function": {
-    "authPostAuthentication": {
-      "Arn": "string",
-      "LambdaExecutionRole": "string",
-      "LambdaExecutionRoleArn": "string",
-      "Name": "string",
-      "Region": "string"
-    },
     "authPostConfirmation": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
@@ -39,6 +32,9 @@ export type AmplifyDependentResourcesAttributes = {
       "LambdaExecutionRoleArn": "string",
       "Name": "string",
       "Region": "string"
+    },
+    "renduawsDynamoLayer": {
+      "Arn": "string"
     },
     "updateUser": {
       "Arn": "string",

@@ -12,5 +12,14 @@
   "triggerTemplate": "PostConfirmation.json.ejs",
   "triggerEventPath": "PostConfirmation.event.json",
   "roleName": "authPostConfirmation",
-  "skipEdit": true
+  "skipEdit": true,
+  "lambdaLayers": [
+    {
+      "type": "ProjectLayer",
+      "resourceName": "renduawsDynamoLayer",
+      "env": "develop",
+      "version": "Always choose latest version",
+      "isLatestVersionSelected": true
+    }
+  ]
 }
