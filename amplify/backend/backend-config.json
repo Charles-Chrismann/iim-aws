@@ -10,7 +10,7 @@
             "Name"
           ],
           "category": "function",
-          "resourceName": "authPostAuthentication",
+          "resourceName": "authPostConfirmation",
           "triggerProvider": "Cognito"
         }
       ],
@@ -44,11 +44,6 @@
     }
   },
   "function": {
-    "authPostAuthentication": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
     "authPostConfirmation": {
       "build": true,
       "dependsOn": [
@@ -94,22 +89,6 @@
     }
   },
   "parameters": {
-    "AMPLIFY_function_authPostAuthentication_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "authPostAuthentication"
-        }
-      ]
-    },
-    "AMPLIFY_function_authPostAuthentication_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "authPostAuthentication"
-        }
-      ]
-    },
     "AMPLIFY_function_authPostConfirmation_deploymentBucketName": {
       "usedBy": [
         {

@@ -42,14 +42,13 @@
     "resourceName": "auth",
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "manual",
-    "thirdPartyAuth": false,
     "usernameAttributes": [
       "email"
     ],
     "userPoolGroups": false,
     "adminQueries": false,
     "triggers": {
-      "PostAuthentication": [
+      "PostConfirmation": [
         "custom"
       ]
     },
@@ -74,7 +73,7 @@
     "dependsOn": [
       {
         "category": "function",
-        "resourceName": "authPostAuthentication",
+        "resourceName": "authPostConfirmation",
         "triggerProvider": "Cognito",
         "attributes": [
           "Arn",
@@ -83,10 +82,11 @@
       }
     ],
     "permissions": [],
-    "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PostAuthentication\",\n    \"lambdaFunctionName\": \"authPostAuthentication\"\n  }\n]",
-    "authProviders": [],
     "parentStack": {
       "Ref": "AWS::StackId"
-    }
+    },
+    "authProviders": [],
+    "thirdPartyAuth": true,
+    "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PostConfirmation\",\n    \"lambdaFunctionName\": \"authPostConfirmation\"\n  }\n]"
   }
 }

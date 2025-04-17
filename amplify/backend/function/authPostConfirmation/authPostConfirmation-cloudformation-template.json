@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "{\"createdOn\":\"Windows\",\"createdBy\":\"Amplify\",\"createdWith\":\"13.0.0\",\"stackType\":\"function-Lambda\",\"metadata\":{\"whyContinueWithGen1\":\"\"}}",
+  "Description": "Lambda resource stack creation using Amplify CLI",
   "Parameters": {
     "GROUP": {
       "Type": "String",
@@ -38,15 +38,15 @@
     "env": {
       "Type": "String"
     },
+    "functionrenduawsDynamoLayerArn": {
+      "Type": "String",
+      "Default": "functionrenduawsDynamoLayerArn"
+    },
     "deploymentBucketName": {
       "Type": "String"
     },
     "s3Key": {
       "Type": "String"
-    },
-    "functionrenduawsDynamoLayer": {
-      "Type": "String",
-      "Default": "functionrenduawsDynamoLayer"
     }
   },
   "Conditions": {
@@ -110,6 +110,11 @@
         },
         "Runtime": "nodejs22.x",
         "Timeout": 25,
+        "Layers": [
+          {
+            "Ref": "functionrenduawsDynamoLayerArn"
+          }
+        ],
         "Code": {
           "S3Bucket": {
             "Ref": "deploymentBucketName"
@@ -117,12 +122,7 @@
           "S3Key": {
             "Ref": "s3Key"
           }
-        },
-        "Layers": [
-          {
-            "Ref": "functionrenduawsDynamoLayer"
-          }
-        ]
+        }
       }
     },
     "LambdaExecutionRole": {
