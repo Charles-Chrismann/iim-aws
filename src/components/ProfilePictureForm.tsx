@@ -45,15 +45,18 @@ export function ProfilePictureForm({ userId }: { userId: string }) {
       console.log('Succeeded: ', result);
       console.log('Succeeded: ', result.path);
 
-      await post({
-        path: "/getUser",
+      const res = await post({
+        path: "/updateUser",
         apiName: 'users',
         options: {
           body: {
-            id: "123"
+            id: "123",
+            avatarS3Path: result.path
           }
         }
-      })
+      }).response
+
+      console.log(res)
     } catch (error) {
       console.log('Error : ', error);
     }
