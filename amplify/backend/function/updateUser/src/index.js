@@ -1,7 +1,5 @@
 const { DynamoDB, DynamoDBClient, ListTablesCommand } = require("@aws-sdk/client-dynamodb");
 const { DynamoDBDocumentClient, UpdateCommand, GetCommand, PutCommand, DeleteCommand } = require('@aws-sdk/lib-dynamodb');
-const AWS = require('aws-sdk');const { DynamoDB, DynamoDBClient, ListTablesCommand } = require("@aws-sdk/client-dynamodb");
-const { DynamoDBDocumentClient, UpdateCommand, GetCommand, PutCommand, DeleteCommand } = require('@aws-sdk/lib-dynamodb');
 
 /**
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
